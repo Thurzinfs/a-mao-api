@@ -1,0 +1,12 @@
+
+.venv/
+__pycache__/
+*.pyc
+
+index/
+uploads/
+base_pdfs/
+*.pdf
+
+.env
+*.key
