@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from uuid import UUID, uuid4
 
 
@@ -22,7 +22,7 @@ class UserEntity:
         self.password = new_password
 
     def delete(self) -> None:
-        self.deleted_at = datetime.now()
+        self.deleted_at = datetime.now(timezone.utc)
 
     def is_deleted(self) -> bool:
         return self.deleted_at is not None
