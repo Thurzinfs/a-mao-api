@@ -6,9 +6,9 @@ from uuid import UUID, uuid4
 @dataclass
 class UserEntity:
     id: UUID = field(default_factory=uuid4)
-    name: str = field(default="")
-    email: str = field(default="")
-    password: str = field(default="")
+    name: str = field(default='')
+    email: str = field(default='')
+    password: str = field(default='')
     created_at: datetime = field(default_factory=datetime.now)
     deleted_at: datetime | None = field(default=None)
 

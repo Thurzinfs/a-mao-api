@@ -5,7 +5,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.handlers.user.user_route_handler import UserAPIRouteHandler
-from app.infrastructure.database.sqlite.database import close_db, init_db, alchemy
+from app.infrastructure.database.sqlite.database import (
+    close_db,
+    init_db,
+    alchemy,
+)
 
 
 @asynccontextmanager
@@ -16,33 +20,33 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="A Mão API",
-    description="API de assistente pessoal que responde perguntas com base nos **seus próprios arquivos**.",
-    version="0.1.0",
+    title='A Mão API',
+    description='API de assistente pessoal que responde perguntas com base nos **seus próprios arquivos**.',
+    version='0.1.0',
     contact={
-        "name": "Arthur",
-        "email": "arthurfranca.dev@gmail.com",
+        'name': 'Arthur',
+        'email': 'arthurfranca.dev@gmail.com',
     },
     license_info={
-        "name": "MIT",
-        "url": "https://opensource.org/licenses/MIT",
+        'name': 'MIT',
+        'url': 'https://opensource.org/licenses/MIT',
     },
-    root_path="/api/v1",
+    root_path='/api/v1',
 )
 alchemy.init_app(app)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=['*'],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=['*'],
+    allow_headers=['*'],
 )
 
 
-@app.get("/health", tags=["Health"])
+@app.get('/health', tags=['Health'])
 async def health_check():
-    return {"status": "ok"}
+    return {'status': 'ok'}
 
 
 user_route_handler = UserAPIRouteHandler()

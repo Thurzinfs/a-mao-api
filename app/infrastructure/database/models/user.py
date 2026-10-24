@@ -6,7 +6,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 
 class User(UUIDAuditBase):
-    __tablename__ = "users"
+    __tablename__ = 'users'
 
     name: Mapped[str] = mapped_column(String(190), nullable=False)
     email: Mapped[str] = mapped_column(nullable=False, unique=True)

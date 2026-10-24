@@ -4,7 +4,10 @@ from app.application.dtos.user import UserInDTO, UserOutDTO, UserUpdateDTO
 from app.domain.contracts.hash_service import IHashService
 from app.domain.contracts.user_repositories import IUserRepository
 from app.domain.entities.user import UserEntity
-from app.domain.exceptions.user import UserAlreadyExistsException, UserNotFoundException
+from app.domain.exceptions.user import (
+    UserAlreadyExistsException,
+    UserNotFoundException,
+)
 
 
 class RegisterUserUseCase:
@@ -19,9 +22,7 @@ class RegisterUserUseCase:
         password_hash = self.hash_service.hash(dto.password)
 
         user = UserEntity(
-            name=dto.name,
-            email=dto.email,
-            password=password_hash
+            name=dto.name, email=dto.email, password=password_hash
         )
 
         await self.user_repo.save(user)
@@ -68,7 +69,7 @@ class UpdateUserUseCase:
         if dto.email:
             if await self.user_repo.verify_email_exists(dto.email):
                 raise UserAlreadyExistsException()
-                
+
             entity.change_email(dto.email)
 
         await self.user_repo.save(entity)

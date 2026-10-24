@@ -13,9 +13,7 @@ class UserInSchema(BaseModel):
         from app.application.dtos.user import UserInDTO
 
         return UserInDTO(
-            name=self.name,
-            email=self.email,
-            password=self.password
+            name=self.name, email=self.email, password=self.password
         )
 
 
@@ -26,11 +24,7 @@ class UserOutSchema(BaseModel):
 
     @classmethod
     def from_dto(cls, dto):
-        return cls(
-            id=dto.id,
-            name=dto.name,
-            email=dto.email
-        )
+        return cls(id=dto.id, name=dto.name, email=dto.email)
 
 
 class UserUpdateSchema(BaseModel):
@@ -40,7 +34,4 @@ class UserUpdateSchema(BaseModel):
     def to_dto(self):
         from app.application.dtos.user import UserUpdateDTO
 
-        return UserUpdateDTO(
-            name=self.name,
-            email=self.email
-        )
+        return UserUpdateDTO(name=self.name, email=self.email)

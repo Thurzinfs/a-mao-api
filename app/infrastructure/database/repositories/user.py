@@ -37,7 +37,7 @@ class AdvancedUserRepository(SQLAlchemyAsyncRepository[User], IUserRepository):
             name=entity.name,
             email=entity.email,
             password=entity.password,
-            deleted_at=entity.deleted_at
+            deleted_at=entity.deleted_at,
         )
 
     def _model_to_entity(self, model: User) -> UserEntity:
@@ -46,5 +46,5 @@ class AdvancedUserRepository(SQLAlchemyAsyncRepository[User], IUserRepository):
             name=model.name,
             email=model.email,
             password=model.password,
-            deleted_at=model.deleted_at
+            deleted_at=model.deleted_at,
         )

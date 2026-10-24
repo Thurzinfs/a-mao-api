@@ -17,11 +17,7 @@ class UserOutDTO(BaseModel):
 
     @classmethod
     def from_entity(cls, user):
-        return cls(
-            id=user.id,
-            name=user.name,
-            email=user.email
-        )
+        return cls(id=user.id, name=user.name, email=user.email)
 
 
 class UserUpdateDTO(BaseModel):

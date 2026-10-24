@@ -1,13 +1,15 @@
 from app.infrastructure.database.models.user import User
 
-from advanced_alchemy.extensions.fastapi import AdvancedAlchemy, SQLAlchemyAsyncConfig
+from advanced_alchemy.extensions.fastapi import (
+    AdvancedAlchemy,
+    SQLAlchemyAsyncConfig,
+)
 
 from sqlalchemy.orm import DeclarativeBase
 
 
 config = SQLAlchemyAsyncConfig(
-    connection_string="sqlite+aiosqlite:///./test.db",
-    create_all=True
+    connection_string='sqlite+aiosqlite:///./test.db', create_all=True
 )
 
 
