@@ -10,3 +10,5 @@ base_pdfs/
 
 .env
 *.key
+
+*.db
