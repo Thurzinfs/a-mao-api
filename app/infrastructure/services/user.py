@@ -1,6 +1,6 @@
 from passlib.context import CryptContext
 
-from app.domain.contracts.hash_service import IHashService
+from app.domain.contracts.user.hash import IHashService
 
 
 class HashService(IHashService):

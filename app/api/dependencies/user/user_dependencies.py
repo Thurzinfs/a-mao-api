@@ -10,8 +10,8 @@ from app.application.use_cases.user import (
     RegisterUserUseCase,
     UpdateUserUseCase,
 )
-from app.domain.contracts.hash_service import IHashService
-from app.domain.contracts.user_repositories import IUserRepository
+from app.domain.contracts.user.hash import IHashService
+from app.domain.contracts.user.repositorie import IUserRepository
 from app.infrastructure.database.repositories.user import (
     AdvancedUserRepository,
 )

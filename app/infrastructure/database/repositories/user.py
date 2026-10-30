@@ -3,8 +3,8 @@ from uuid import UUID
 from advanced_alchemy.repository import SQLAlchemyAsyncRepository
 
 from app.domain.entities.user import UserEntity
-from app.domain.contracts.user_repositories import IUserRepository
-from app.infrastructure.database.models.user import User
+from app.domain.contracts.user.repositorie import IUserRepository
+from app.infrastructure.models.user import User
 
 
 class AdvancedUserRepository(SQLAlchemyAsyncRepository[User], IUserRepository):

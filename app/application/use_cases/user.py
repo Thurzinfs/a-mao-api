@@ -1,8 +1,8 @@
 from uuid import UUID
 
 from app.application.dtos.user import UserInDTO, UserOutDTO, UserUpdateDTO
-from app.domain.contracts.hash_service import IHashService
-from app.domain.contracts.user_repositories import IUserRepository
+from app.domain.contracts.user.hash import IHashService
+from app.domain.contracts.user.repositorie import IUserRepository
 from app.domain.entities.user import UserEntity
 from app.domain.exceptions.user import (
     UserAlreadyExistsException,

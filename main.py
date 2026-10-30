@@ -4,6 +4,7 @@ from fastapi import FastAPI
 
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.handlers.auth.auth_route_handler import AuthAPIRouteHandler
 from app.api.handlers.user.user_route_handler import UserAPIRouteHandler
 from app.infrastructure.database.sqlite.database import (
     close_db,
@@ -49,7 +50,9 @@ async def health_check():
     return {'status': 'ok'}
 
 
+auth_route_handler = AuthAPIRouteHandler()
 user_route_handler = UserAPIRouteHandler()
 
 
+auth_route_handler.register_route(app)
 user_route_handler.register_route(app)
