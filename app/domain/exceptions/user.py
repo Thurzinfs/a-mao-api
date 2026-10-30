@@ -9,3 +9,8 @@ class UserNotFoundException(BaseDomainException):
 class UserAlreadyExistsException(BaseDomainException):
     message = 'User already exists'
     status_code = 400
+
+
+class CredentialsInvalidExcetion(BaseDomainException):
+    message = 'Credentials invalid'
+    status_code = 401
