@@ -1,4 +1,4 @@
-from app.infrastructure.database.models.user import User
+from app.infrastructure.models.user import User
 
 from advanced_alchemy.extensions.fastapi import (
     AdvancedAlchemy,
